@@ -21,6 +21,15 @@ var CommentBox = React.createClass({
       }.bind(this)
     });
   },
+  componentWillMount: function() {
+    this.pusher = new Pusher('e0a2fd2c6a944554cb8d', { encrypted: true});
+    this.chatRoom = this.pusher.subscribe('comment');
+  },
+  componentDidMount: function() {
+    this.chatRoom.bind('new_comment', function(data){
+      this.setState({comments: data })
+    }, this);
+  },
   getInitialState: function() {
     return {comments: JSON.parse(this.props.comments)};
   },

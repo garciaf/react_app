@@ -26,7 +26,10 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @success = @comment.save
-    @comments = Comment.all if @success
+    if @success
+      @comments = Comment.all 
+      Pusher.trigger('comment', 'new_comment', @comments.to_json )
+    end
     respond_to do |format|
       if @success
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
