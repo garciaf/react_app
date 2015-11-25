@@ -6,7 +6,6 @@ var CommentBox = React.createClass({
     // not use Date.now() for this and would have a more robust system in place.
     comment.id = Date.now();
     var newComments = comments.concat([comment]);
-    this.setState({comments: newComments});
     $.ajax({
       url: this.props.url,
       dataType: 'json',
