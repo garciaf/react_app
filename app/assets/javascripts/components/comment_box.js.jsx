@@ -22,7 +22,6 @@ var CommentBox = React.createClass({
     });
   },
   getInitialState: function() {
-    console.log(this.props)
     return {data: JSON.parse(this.props.comments)};
   },
   
