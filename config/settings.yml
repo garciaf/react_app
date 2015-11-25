@@ -1,0 +1,4 @@
+pusher:
+  app_id: '157041'
+  key: 'e0a2fd2c6a944554cb8d'
+  secret: <%= ENV['PUSHER_SECRET']%>

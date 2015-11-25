@@ -67,9 +67,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    config (1.0.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.0.0)
     connection_pool (2.2.0)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
+    deep_merge (1.0.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -81,6 +85,7 @@ GEM
     ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    httpclient (2.5.3.3)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -106,6 +111,10 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pusher (0.14.2)
+      httpclient (~> 2.4)
+      multi_json (~> 1.0)
+      signature (~> 0.1.6)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -178,6 +187,7 @@ GEM
     showdown-rails (0.0.4)
       actionpack (>= 3.1)
       railties (>= 3.1)
+    signature (0.1.7)
     slop (3.6.0)
     spring (1.4.4)
     sprockets (3.4.0)
@@ -214,12 +224,14 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  config
   database_cleaner
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
   pry
+  pusher
   rails (= 4.2.2)
   react-rails
   rspec-rails (~> 3.0)

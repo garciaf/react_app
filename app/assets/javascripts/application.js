@@ -16,5 +16,6 @@
 //= require showdown
 //= require react
 //= require react_ujs
+//= require pusher
 //= require bootstrap-sprockets
 //= require components
