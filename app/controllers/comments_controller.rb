@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     @success = @comment.save
     if @success
       @comments = Comment.last(5)
-      Pusher.trigger('comment', 'new_comment', @comments.to_json )
+      Pusher.trigger('comment', 'new_comment', @comment )
     end
     respond_to do |format|
       if @success

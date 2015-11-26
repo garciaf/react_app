@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require i18n
 //= require i18n/translations
+//= require desktop-notify
 //= require turbolinks
 //= require showdown
 //= require react

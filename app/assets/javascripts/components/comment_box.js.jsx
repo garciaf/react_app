@@ -12,7 +12,7 @@ var CommentBox = React.createClass({
       type: 'POST',
       data: { comment: comment },
       success: function(data) {
-        this.setState({comments: data});
+        // this.setState({comments: comments.concat([data])}); # If you want to use it without pusher
       }.bind(this),
       error: function(xhr, status, err) {
         this.setState({comments: comments});
@@ -23,10 +23,15 @@ var CommentBox = React.createClass({
   componentWillMount: function() {
     this.pusher = new Pusher('e0a2fd2c6a944554cb8d', { encrypted: true});
     this.chatRoom = this.pusher.subscribe('comment');
+    notify.requestPermission()
   },
   componentDidMount: function() {
     this.chatRoom.bind('new_comment', function(data){
-      this.setState({comments: data })
+      var comments = this.state.comments;
+      this.setState({comments: comments.concat([data])});
+      if (notify.permissionLevel() === notify.PERMISSION_GRANTED){
+        notify.createNotification(data.author, {body: data.text, icon: "images/chat.ico"})
+      }
     }, this);
   },
   getInitialState: function() {
