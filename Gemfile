@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'config'
 gem 'pusher'
 gem 'react-rails'
+gem "i18n-js", ">= 3.0.0.rc11"
 gem 'showdown-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'

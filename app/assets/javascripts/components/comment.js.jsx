@@ -7,12 +7,12 @@ var Comment = React.createClass({
 
   render: function() {
     return (
-      <div className="comment">
-        <small className="commentAuthor">
+      <blockquote>
+        <p dangerouslySetInnerHTML={this.rawMarkup()} /> 
+        <footer className="commentAuthor">
           {this.props.author}
-        </small>
-        <span dangerouslySetInnerHTML={this.rawMarkup()} />
-      </div>
+        </footer>
+      </blockquote>
     );
   }
 });
