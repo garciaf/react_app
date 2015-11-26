@@ -16,7 +16,7 @@ var CommentForm = React.createClass({
       return;
     }
     this.props.onCommentSubmit({author: author, text: text});
-    this.setState({author: '', text: ''});
+    this.setState({ text: ''});
   },
   render: function() {
     return (
