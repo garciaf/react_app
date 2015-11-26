@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = Comment.last(5)
   end
 
   # GET /comments/1
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @success = @comment.save
     if @success
-      @comments = Comment.all 
+      @comments = Comment.last(5)
       Pusher.trigger('comment', 'new_comment', @comments.to_json )
     end
     respond_to do |format|
