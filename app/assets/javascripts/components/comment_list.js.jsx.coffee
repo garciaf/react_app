@@ -2,9 +2,7 @@
   mixins: [Backbone.React.Component.mixin]
   render: ->
     commentNodes = @getCollection().map((comment) ->
-      `<Comment author={comment.get('author')} key={comment.cid}>
-        {comment.get('text')}
-      </Comment>`
+      `<Comment model={comment} key={comment.cid} />`
     )
     `<div>
       {commentNodes}

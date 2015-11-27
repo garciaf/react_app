@@ -1,13 +1,13 @@
 @Comment = React.createClass(
   rawMarkup: ->
-    converter = new (Showdown.converter)
-    rawMarkup = converter.makeHtml(@props.children.toString(), sanitize: true)
+    converter = new (Showdown.converter) 
+    rawMarkup = converter.makeHtml(@props.model.get('text'), sanitize: true)
     { __html: rawMarkup }
   render: ->
     `<blockquote>
       <p dangerouslySetInnerHTML={this.rawMarkup()} /> 
       <footer className="commentAuthor">
-        {this.props.author}
+        {this.props.model.get('author')}
       </footer>
     </blockquote>`
 )
