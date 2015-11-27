@@ -1,8 +1,9 @@
 @CommentList = React.createClass(
+  mixins: [Backbone.React.Component.mixin]
   render: ->
-    commentNodes = @props.comments.map((comment) ->
-      `<Comment author={comment.author} key={comment.id}>
-        {comment.text}
+    commentNodes = @getCollection().map((comment) ->
+      `<Comment author={comment.get('author')} key={comment.id}>
+        {comment.get('text')}
       </Comment>`
     )
     `<div>

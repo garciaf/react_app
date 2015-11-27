@@ -17,8 +17,16 @@
 //= require desktop-notify
 //= require turbolinks
 //= require showdown
+//= require underscore
+//= require backbone
 //= require react
 //= require react_ujs
-//= require pusher
+//= require backbone-react-component
 //= require bootstrap-sprockets
-//= require components
+//= require pusher
+
+//= require 'app_scope'
+
+//= require_tree './models'
+//= require_tree './collections'
+//= require_tree './components'
