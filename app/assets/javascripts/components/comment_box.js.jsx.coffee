@@ -15,7 +15,8 @@
   componentWillUnmoun: -> 
     @off(@)
   componentDidMount: ->
-    @chatRoom.bind 'new_comment', ((data) ->
+    @chatRoom.bind 'client-new_comment', ((data) ->
+      @socketId = pusher.connection.socket_id
       existing_comment = @getCollection().add(data)
       new_comment = @getCollection().get(data.id)
       new_comment.notifyUser()
@@ -23,7 +24,6 @@
 
   render: ->
     `<div className="commentBox">
-        <h1>Comments</h1>
         <CommentList collection={this.getCollection()} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>`
